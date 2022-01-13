@@ -3,13 +3,38 @@ import { connect } from "react-redux";
 import { DECREMENT, INCREMENT, RESET } from "../state/actions/actionTypes";
 
 const Count = (props) => {
-  console.log("props count", props.count);
   return (
-    <div>
-      <div>{props.count}</div>
-      <button onClick={props.increment}>increment</button>
-      <button onClick={props.decrement}>decrement</button>
-      <button onClick={props.reset}>reset</button>
+    <div className="bg-gray-200 text-red-500 h-screen w-screen flex flex-col items-center justify-center">
+      <div className="text-black text-5xl mb-4 font-bold">
+        {props.count}
+        <span
+          className={`text-sm text-gray-700 font-normal ${
+            props.count % 2 === 0 ? "text-blue-600" : "text-green-600"
+          }`}
+        >
+          {props.count % 2 === 0 ? "Even" : "Odd"}
+        </span>
+      </div>
+      <div className="flex flex-row gap-x-2">
+        <button
+          onClick={props.increment}
+          className="px-3 py-1 border border-gray-400 rounded-full"
+        >
+          increment
+        </button>
+        <button
+          onClick={props.decrement}
+          className="px-3 py-1 border border-gray-400 rounded-full"
+        >
+          decrement
+        </button>
+        <button
+          onClick={props.reset}
+          className="px-3 py-1 border border-gray-400 rounded-full"
+        >
+          reset
+        </button>
+      </div>
     </div>
   );
 };
